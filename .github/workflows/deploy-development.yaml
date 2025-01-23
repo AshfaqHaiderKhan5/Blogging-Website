@@ -1,11 +1,9 @@
 name: Deploy to GitHub Pages
+
 on:
   push:
     branches:
-      - develop
-  pull_request:
-    branches:
-      - develop  
+      - develop  # Trigger on any push to the develop branch
 
 jobs:
   build:
@@ -13,12 +11,12 @@ jobs:
 
     steps:
       - name: Checkout code
-        uses: actions/checkout@v4
+        uses: actions/checkout@v2
 
       - name: Set up Node.js
         uses: actions/setup-node@v2
         with:
-          node-version: '18'
+          node-version: '18'  # Specify the Node.js version you want to use
 
       - name: Install dependencies
         run: npm install
@@ -29,14 +27,15 @@ jobs:
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: dist  
+          path: dist  # Path to the built files
+
   deploy:
     runs-on: ubuntu-latest
-    needs: build  
+    needs: build  # Ensure the build job is completed before deploying
 
     steps:
       - name: Deploy to GitHub Pages
         uses: actions/deploy-pages@v4
         with:
-          branch: gh-pages  # The branch to deploy to
-          folder: dist  # The folder containing the built files
+          token: ${{ secrets.GITHUB_TOKEN }}  # Use the GitHub token for authentication
+          path: dist  # The folder containing the built files
