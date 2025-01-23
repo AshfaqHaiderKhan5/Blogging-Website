@@ -38,5 +38,5 @@ jobs:
           run: npm install
   
         - name: Build the static website
-          run: npx parcel build src/index.html --dist-dir dist --public-url ./
+          run: npx parcel build index.html --dist-dir dist --public-url ./
  
