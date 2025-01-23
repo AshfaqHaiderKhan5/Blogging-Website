@@ -1,0 +1,42 @@
+name: Deploy to GitHub Pages
+on:
+  push:
+    branches:
+      - develop
+  pull_request:
+    branches:
+      - develop  
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: '18'
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Build the static website
+        run: npx parcel build src/index.html --dist-dir dist --public-url ./  # Adjust the path if necessary
+
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: dist  
+  deploy:
+    runs-on: ubuntu-latest
+    needs: build  
+
+    steps:
+      - name: Deploy to GitHub Pages
+        uses: actions/deploy-pages@v4
+        with:
+          branch: gh-pages  # The branch to deploy to
+          folder: dist  # The folder containing the built files
