@@ -24,7 +24,7 @@ jobs:
         run: npm install
 
       - name: Build the static website
-        run: npx parcel build src/index.html --dist-dir dist --public-url ./  # Adjust the path if necessary
+        run: npx parcel build index.html --dist-dir dist --public-url ./  # Adjust the path if necessary
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
