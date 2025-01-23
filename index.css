@@ -1,0 +1,97 @@
+/* home.css */
+body {
+    font-family: sans-serif;
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+    color: #333; /* Dark gray text for better contrast */
+    background-color: #f4f4f4; /* Light gray background */
+}
+
+header {
+    background-color: #333;
+    color: #fff;
+    padding: 1rem 0;
+}
+
+nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    text-align: center; /* Center the navigation items */
+}
+
+nav li {
+    display: inline;
+    margin: 0 1rem;
+}
+
+nav a {
+    color: #fff;
+    text-decoration: none;
+    padding: 0.5rem 1rem; /* Add some padding around link text */
+    transition: background-color 0.3s ease; /* Smooth hover effect */
+}
+
+nav a:hover {
+    background-color: #555; /* Darker background on hover */
+}
+
+main {
+    padding: 2rem;
+    min-height: calc(100vh - 100px); /* Ensure main takes up full viewport height minus header/footer */
+
+}
+
+#hero {
+    background-color: #eee;
+    padding: 2rem;
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+#hero h1 {
+    margin-bottom: 1rem;
+}
+
+#hero button {
+    background-color: #333;
+    color: #fff;
+    padding: 0.75rem 1.5rem;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#hero button:hover {
+    background-color: #555;
+}
+
+#featured {
+    text-align: center;
+}
+
+.feature-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Responsive grid */
+    grid-gap: 1rem;
+    margin-top: 2rem;
+}
+
+.feature {
+    border: 1px solid #ddd;
+    padding: 1rem;
+    text-align: left; /* Align text within feature boxes to the left */
+    background-color: #fff; /* White background for feature boxes */
+    box-shadow: 2px 2px 5px rgba(0,0,0,0.1); /* subtle shadow */
+}
+
+footer {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 1rem 0;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+}
