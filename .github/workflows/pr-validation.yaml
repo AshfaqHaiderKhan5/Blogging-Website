@@ -32,11 +32,11 @@ jobs:
         - name: Set up Node.js
           uses: actions/setup-node@v2
           with:
-            node-version: '16'  # Specify the Node.js version you want to use
+            node-version: '18'  # Update to Node.js version 18 or higher
   
         - name: Install dependencies
           run: npm install
   
         - name: Build the static website
-          run: npx parcel build src/index.html --out-dir dist --public-url ./
+          run: npx parcel build src/index.html --dist-dir dist --public-url ./
  
