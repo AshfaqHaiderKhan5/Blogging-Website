@@ -27,16 +27,14 @@ jobs:
       needs: linting-job 
       steps:
         - name: Checkout code
-          uses: actions/checkout@v2
-  
+          uses: actions/checkout@v4
         - name: Set up Node.js
           uses: actions/setup-node@v2
           with:
-            node-version: '18'  # Update to Node.js version 18 or higher
-  
+            node-version: '18' 
         - name: Install dependencies
           run: npm install
   
         - name: Build the static website
-          run: npx parcel build index.html --dist-dir dist --public-url ./
+          run: npx parcel build ./src/index.html --dist-dir dist --public-url ./
  
